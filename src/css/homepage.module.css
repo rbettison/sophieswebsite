@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Special+Elite&display=swap');
+
+
+.Title {
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Cabin Sketch', cursive;
+}
+
+.ComingSoon {
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Special Elite', cursive; 
+}
