@@ -1,0 +1,14 @@
+.navBarContainer {
+    background-color: #D9D3D8;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navBarInnerContainer {
+    margin: auto;
+}
+
+.navItem {
+    margin-left: 120px;
+    margin-right: 120px;
+}

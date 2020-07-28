@@ -9,7 +9,7 @@ class Main extends React.Component {
         return (
         <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/whoweare" component={About} />
+            <Route exact path="/aboutsophie" component={About} />
             <Route exact path="/blog" component = {Blog} />
         </Switch>
         );
