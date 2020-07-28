@@ -8,22 +8,36 @@ class Header extends React.Component {
 
     render() {
         return (
-            <Container>
-                <Navbar className="navBarContainer">
-                    <Nav className="navBarInnerContainer">
-                        <Nav.Item className="navItem">
-                            <Nav.Link eventKey="home" href="/">
+            <table className="navBarOuterContainer">
+                <tr className="navBarContainer">
+                        <td className="navItem">
+                            <a className="navItemText" eventKey="home" href="/">
                                 HOME
-                            </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item className="navItem">
-                            <Nav.Link eventKey="about" href="/aboutsophie">
+                            </a>
+                        </td>
+                        <td className="navItem">
+                            <a className="navItemText" eventKey="about" href="/aboutsophie">
                                 ABOUT SOPHIE
-                            </Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                </Navbar>
-            </Container>
+                            </a>
+                        </td>
+                </tr>
+            </table>
+            // <Container>
+            //     <Navbar className="navBarContainer">
+            //         <Nav className="navBarInnerContainer">
+            //             <Nav.Item className="navItem">
+            //                 <Nav.Link eventKey="home" href="/">
+            //                     HOME
+            //                 </Nav.Link>
+            //             </Nav.Item>
+            //             <Nav.Item className="navItem">
+            //                 <Nav.Link eventKey="about" href="/aboutsophie">
+            //                     ABOUT SOPHIE
+            //                 </Nav.Link>
+            //             </Nav.Item>
+            //         </Nav>
+            //     </Navbar>
+            // </Container>
         );
     }
 }

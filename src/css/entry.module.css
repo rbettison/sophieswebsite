@@ -3,21 +3,25 @@
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 10px;
-    height: 200px;
+    height: 300px;
     text-align: center;
+    border-color: #D9D3D8;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .imageContainer {
     background-color: white;
     height: 200px;
-    width: 400px;
+    width: 600px;
     margin: auto;
+    margin-top: 50px;
 }
 
 .entryImage {
     object-fit: cover;
     height: 200px;
-    width: 400px;
+    width: 600px;
 }
 
 .imageContainer:hover {
