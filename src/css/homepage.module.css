@@ -1,14 +1,75 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Special+Elite&display=swap');
 
-
-.Title {
-    font-size: 50px;
-    text-align: center;
-    font-family: 'Cabin Sketch', cursive;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.ComingSoon {
-    font-size: 25px;
-    text-align: center;
-    font-family: 'Special Elite', cursive; 
+.gallery-section {
+    width: 100%;
 }
+
+.inner-width{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+  }
+
+.border {
+    width: 180px;
+    height: 4px;
+    margin: 60px auto;
+}
+
+.gallery-section .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.gallery-section .image{
+    flex: 25%;
+    overflow: hidden;
+    cursor: pointer;
+    object-fit: cover;
+  }
+
+.gallery-section .image img {
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+}
+
+@media screen and (min-width:960px) {
+    .gallery-section .image{
+      flex: 25%;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+
+@media screen and (max-width:960px) {
+    .gallery-section .image{
+      flex: 33.33%;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+  
+  @media screen and (max-width:768px) {
+    .gallery-section .image{
+      flex: 50%;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+  
+  @media screen and (max-width:480px) {
+    .gallery-section .image{
+      flex: 100%;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }

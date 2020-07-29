@@ -9,35 +9,21 @@ class Header extends React.Component {
     render() {
         return (
             <table className="navBarOuterContainer">
+                <tbody>
                 <tr className="navBarContainer">
                         <td className="navItem">
-                            <a className="navItemText" eventKey="home" href="/">
+                            <a className="navItemText" href="/">
                                 HOME
                             </a>
                         </td>
                         <td className="navItem">
-                            <a className="navItemText" eventKey="about" href="/aboutsophie">
+                            <a className="navItemText" href="/aboutsophie">
                                 ABOUT SOPHIE
                             </a>
                         </td>
                 </tr>
+                </tbody>
             </table>
-            // <Container>
-            //     <Navbar className="navBarContainer">
-            //         <Nav className="navBarInnerContainer">
-            //             <Nav.Item className="navItem">
-            //                 <Nav.Link eventKey="home" href="/">
-            //                     HOME
-            //                 </Nav.Link>
-            //             </Nav.Item>
-            //             <Nav.Item className="navItem">
-            //                 <Nav.Link eventKey="about" href="/aboutsophie">
-            //                     ABOUT SOPHIE
-            //                 </Nav.Link>
-            //             </Nav.Item>
-            //         </Nav>
-            //     </Navbar>
-            // </Container>
         );
     }
 }

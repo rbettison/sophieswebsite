@@ -7,10 +7,16 @@ class Home extends React.Component {
 
         const entries = ['Art Post 1', 'Art Post 2', 'Art Post 3'];
         return (
-            <div>
-                {entries.map((value, index) => {
-                    return <Entry key={index} title={value}></Entry>
-                })}
+            <div className="gallery-section">
+                <div className="inner-width">
+                <div className="gallery">
+                    {entries.map((value, index) => {
+                    return (
+                        <Entry key={index} title={value} id={index}></Entry>
+                        )
+                    })}
+                </div>
+                </div>
             </div>
         ); 
     }
