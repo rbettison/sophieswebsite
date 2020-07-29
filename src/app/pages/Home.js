@@ -1,6 +1,7 @@
 import React from 'react';
 import Entry from '../components/Entry';
 import styles from '../../css/homepage.module.css';
+import tileData from '../../data/tiles.json';
 
 class Home extends React.Component {
     render() {
@@ -10,15 +11,15 @@ class Home extends React.Component {
             <div className="gallery-section">
                 <div className="inner-width">
                 <div className="gallery">
-                    {entries.map((value, index) => {
+                    {tileData.map((tile) => {
                     return (
-                        <Entry key={index} title={value} id={index}></Entry>
+                        <Entry key={tile.id} title={tile.title} id={tile.id} image={tile.image}></Entry>
                         )
                     })}
                 </div>
                 </div>
             </div>
-        ); 
+        );  
     }
 }
 
