@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "image":"/images/eye.jpg",
+        "title":"EYE",
+        "description":"This is a very interesting eye piece that I did a couple of years ago. For me it represents all that the eye can be for human life. Humans rely on sight to live and eyes rely on the brain therefore the cycle of reliance is evermore and complete."
+    },
+    {
+        "id": 2,
+        "image":"/images/house.jpg",
+        "title":"HOUSE",
+        "description":"This is a very interesting eye piece that I did a couple of years ago. For me it represents all that the eye can be for human life. Humans rely on sight to live and eyes rely on the brain therefore the cycle of reliance is evermore and complete."
+    },
+    {
+        "id":3,
+        "image":"/images/noise.jpg",
+        "title":"NOISE",
+        "description":"This is a very interesting eye piece that I did a couple of years ago. For me it represents all that the eye can be for human life. Humans rely on sight to live and eyes rely on the brain therefore the cycle of reliance is evermore and complete."
+    },
+    {
+        "id":4,
+        "image":"/images/house.jpg",
+        "title":"ANOTHER ARTWORK",
+        "description":"This is a very interesting eye piece that I did a couple of years ago. For me it represents all that the eye can be for human life. Humans rely on sight to live and eyes rely on the brain therefore the cycle of reliance is evermore and complete."
+    },
+    {
+        "id":5,
+        "image":"/images/eye.jpg",
+        "title":"ONE MORE ARTWORK",
+        "description":"This is a very interesting eye piece that I did a couple of years ago. For me it represents all that the eye can be for human life. Humans rely on sight to live and eyes rely on the brain therefore the cycle of reliance is evermore and complete."
+    },
+    {
+        "id":6,
+        "image":"/images/noise.jpg",
+        "title":"PROFOUND PIECE",
+        "description":"This is a very interesting eye piece that I did a couple of years ago. For me it represents all that the eye can be for human life. Humans rely on sight to live and eyes rely on the brain therefore the cycle of reliance is evermore and complete."
+    },
+    {
+        "id":7,
+        "image":"/images/eye.jpg",
+        "title":"ARTWORK TITLE",
+        "description":"This is a very interesting eye piece that I did a couple of years ago. For me it represents all that the eye can be for human life. Humans rely on sight to live and eyes rely on the brain therefore the cycle of reliance is evermore and complete."
+    }
+]

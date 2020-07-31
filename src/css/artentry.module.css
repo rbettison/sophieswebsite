@@ -1,0 +1,27 @@
+.contentContainer {
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.title {
+    font-family: avenir;
+    color: #736372;
+    width: 100%;
+    display: block;
+    font-weight: 100;
+}
+
+.description {
+    font-family: avenir;
+    color: #736372;
+    width: 100%;
+    display: block;
+    font-weight: 100;
+    margin-top: 10px;
+}
+
+.image {
+    width:100%;
+}

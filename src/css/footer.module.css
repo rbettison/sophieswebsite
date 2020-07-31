@@ -1,0 +1,24 @@
+.footer {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.label {
+    font-family: avenir;
+    color: #736372;
+    display: block;
+    width:80px;
+    font-weight: 100;
+    margin: auto;
+}
+
+.label:hover {
+    text-decoration: none;
+}
+
+.label:hover .igImage{
+    opacity: 0.3;
+}

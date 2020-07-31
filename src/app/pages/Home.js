@@ -1,17 +1,28 @@
 import React from 'react';
 import Entry from '../components/Entry';
 import styles from '../../css/homepage.module.css';
-import tileData from '../../data/tiles.json';
+import artEntryService from '../services/artEntryService';
 
 class Home extends React.Component {
-    render() {
+    constructor(props) {
+        super(props)
+        this.state = {
+            tiles: []
+        }
+    }
 
-        const entries = ['Art Post 1', 'Art Post 2', 'Art Post 3'];
+    componentDidMount() {
+        artEntryService.getArtworkEntries().then((tiles) => {
+            this.setState({tiles : tiles})
+        });
+    }
+
+    render() {
         return (
             <div className="gallery-section">
                 <div className="inner-width">
                 <div className="gallery">
-                    {tileData.map((tile) => {
+                    {this.state.tiles.map((tile) => {
                     return (
                         <Entry key={tile.id} title={tile.title} id={tile.id} image={tile.image}></Entry>
                         )

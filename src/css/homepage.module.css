@@ -23,7 +23,9 @@
 }
 
 .gallery-section .gallery {
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50% 50% 50% 50%;
     flex-wrap: wrap;
     justify-content: flex-start;
 }
@@ -37,7 +39,7 @@
   }
 
   .image:hover img{
-      opacity: 0.5;
+      opacity: 0.2;
       transition-duration: 0.5s;
   }
 
@@ -50,6 +52,7 @@
     position: relative;
     text-align: center;
     height: 100%;
+    padding: 1%;
   }
 
   .entryTitle {
@@ -68,36 +71,33 @@
     width: 100%;
     height: 100%;
     transition: 0.4s;
+    object-fit: cover;
 }
 
 @media screen and (min-width:960px) {
-    .gallery-section .image{
-      flex: 25%;
-      flex-grow: 0;
-      flex-shrink: 0;
+    .gallery-section .gallery{
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 50% 50% 50% 50%;
     }
   }
 
 @media screen and (max-width:960px) {
-    .gallery-section .image{
-      flex: 33.33%;
-      flex-grow: 0;
-      flex-shrink: 0;
+    .gallery-section .gallery{
+        grid-template-columns: 33.33% 33.33% 33.33%;
+        grid-template-rows: 25% 25% 25% 25%;
     }
   }
   
   @media screen and (max-width:768px) {
-    .gallery-section .image{
-      flex: 50%;
-      flex-grow: 0;
-      flex-shrink: 0;
+    .gallery-section .gallery{
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 25% 25% 25% 25%;
     }
   }
   
   @media screen and (max-width:480px) {
-    .gallery-section .image{
-      flex: 100%;
-      flex-grow: 0;
-      flex-shrink: 0;
+    .gallery-section .gallery{
+        grid-template-columns: 100%;
+        grid-template-rows: 25% 25% 25% 25%;
     }
   }
