@@ -1,25 +1,40 @@
 import entries from "./tiles.json";
+import axios from "axios";
+import authHeader from "./auth-header";
+
+const BASE_URL = "http://localhost:8081/api/";
 
 function getArtworkEntries() {
-    return new Promise((resolve, reject) => {
-        resolve(entries);
+    return axios.get(BASE_URL + "getEntries").then(response => {
+        return response.data.entries;
     })
 }
 
 function getArtworkEntryById(id) {
-    return new Promise((resolve, reject) => {
-        var entry = entries.filter((el) => {
-            if(el.id == id) {
-                return true;
-            } else {
-                return false;
-            }
-        })
-        resolve(entry[0]);
+    return axios.get(BASE_URL + "getEntryById/" + id).then(response => {
+        return response.data.entry;
+    })
+}
+
+function updateArtworkEntry(updatedEntry) {
+    const header = authHeader.authHeader();
+    return axios.post(BASE_URL + "updateEntry", updatedEntry, {headers: header})
+    .then(response => {
+        return response.data.entry;
+    })
+}
+
+function createArtworkEntry(createdEntry) {
+    const header = authHeader.authHeader();
+    return axios.post(BASE_URL + "createEntry", createdEntry, {headers: header})
+    .then(response => {
+        return response.data.entry;
     })
 }
 
 export default {
     getArtworkEntries,
-    getArtworkEntryById
+    getArtworkEntryById,
+    updateArtworkEntry,
+    createArtworkEntry
 };

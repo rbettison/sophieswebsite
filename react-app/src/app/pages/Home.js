@@ -2,12 +2,14 @@ import React from 'react';
 import Entry from '../components/Entry';
 import styles from '../../css/homepage.module.css';
 import artEntryService from '../services/artEntryService';
+import AuthService from '../services/auth-service';
 
 class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            tiles: []
+            tiles: [],
+            currentUser: AuthService.getCurrentUser()
         }
     }
 
@@ -18,6 +20,8 @@ class Home extends React.Component {
     }
 
     render() {
+        const { currentUser } = this.state;
+
         return (
             <div className="gallery-section">
                 <div className="inner-width">
@@ -29,7 +33,12 @@ class Home extends React.Component {
                     })}
                 </div>
                 </div>
+                {
+                    currentUser &&
+                    <a href='/art/new'>ADD</a>
+                }
             </div>
+
         );  
     }
 }

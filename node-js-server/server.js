@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require('./app/models/');
 const User = db.user;
+const Entry = db.entry;
 db.sequelize.sync({force: true}).then(() => {
     console.log('Drop and resync Db');
     initial();
@@ -32,6 +33,7 @@ app.get("/", (req, res) => {
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
+require('./app/routes/entry.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8081;
@@ -44,6 +46,16 @@ function initial() {
     User.create({
         username: 'Sophie',
         email: 'sophieb@gmail.com',
-        password: 'clubpenguin'
+        password: '$2y$12$Z4FB4EbW271X5bBLBe/R4uFK4U.Dwatxo3IRjimLN9oXU8z3nUuuC'
+    })
+    Entry.create({
+        title: 'Art Entry Numero Uno',
+        description: 'This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description.',
+        image: '/images/eye.jpg'
+    })
+    Entry.create({
+        title: 'Art Entry Numero Uno',
+        description: 'This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description.',
+        image: '/images/noise.jpg'
     })
 }
