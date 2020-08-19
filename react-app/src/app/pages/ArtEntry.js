@@ -3,6 +3,7 @@ import artEntryService from '../services/artEntryService';
 import styles from '../../css/artentry.module.css';
 import AuthService from '../services/auth-service';
 import _ from 'lodash';
+const BASE_IMAGE_URL = "https://sophie-website-bucket.s3.eu-west-2.amazonaws.com/";
 
 class ArtEntry extends React.Component {
 
@@ -12,6 +13,7 @@ class ArtEntry extends React.Component {
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.updateTile = this.updateTile.bind(this);
         this.createTile = this.createTile.bind(this);
+        this.onChangeImage = this.onChangeImage.bind(this);
         this.state = {
             tile: {
                 id:'',
@@ -19,6 +21,7 @@ class ArtEntry extends React.Component {
                 description:'',
                 image:''
             },
+            imageFile: {},
             currentUser: AuthService.getCurrentUser(),
             update: false,
             create: false
@@ -43,9 +46,11 @@ class ArtEntry extends React.Component {
     }
 
     updateTile() {
-        artEntryService.updateArtworkEntry(this.state.tile).then(tile => {
-            console.log('Tile updated: ' + tile);
-            window.location.reload();
+        artEntryService.uploadImage(this.state.imageFile).then((res) =>{
+            artEntryService.updateArtworkEntry(this.state.tile).then(tile => {
+                console.log('Tile updated: ' + tile);
+                window.location.reload();
+            });
         });
     }
 
@@ -57,11 +62,13 @@ class ArtEntry extends React.Component {
          };
         var newTile = _.pick(this.state.tile, _.keys(model));
 
-        artEntryService.createArtworkEntry(newTile).then(tile => {
-            console.log('Tile created: ' + tile);
-            this.props.history.push("/art/" + tile.id);
-            window.location.reload();
-        });
+        artEntryService.uploadImage(this.state.imageFile).then(() =>{
+            artEntryService.createArtworkEntry(newTile).then(tile => {
+                console.log('Tile created: ' + tile);
+                this.props.history.push("/art/" + tile.id);
+                window.location.reload();
+            });
+        })
     }
 
     onChangeTitle(e) {
@@ -82,6 +89,22 @@ class ArtEntry extends React.Component {
         })
     }
 
+    onChangeImage(e) {
+        const files = e.target.files;
+        if(files && files.length > 0) {
+            const file = files[0];
+            this.setState({
+                tile: {
+                    ...this.state.tile,
+                    image: file.name
+                },
+                imageFile: file,
+            });
+        } else {
+            this.setState({imageFile: {}})
+        }
+    }
+
     render() {
         const { currentUser } = this.state;
 
@@ -91,7 +114,7 @@ class ArtEntry extends React.Component {
                     !currentUser && 
                     <div>
                         <h1 className="title">{this.state.tile.title}</h1>
-                        <img className="image" src={this.state.tile.image} />
+                        <img className="image" src={BASE_IMAGE_URL + this.state.tile.image} />
                         <div>
                             <p className="description">{this.state.tile.description}</p>
                         </div>
@@ -101,7 +124,8 @@ class ArtEntry extends React.Component {
                     currentUser &&
                     <div>
                         <input type="text" value={this.state.tile.title} onChange={this.onChangeTitle}/>
-                        <img className="image" src={this.state.tile.image} />
+                        {/* <img className="image" src={BASE_IMAGE_URL + this.state.tile.image} /> */}
+                        <input type="file" id="upload-img" name="img" accept="image/*" onChange={this.onChangeImage}/>
                         <input type="text" value={this.state.tile.description} onChange={this.onChangeDescription} />
                         <br/>
                         {this.state.update && <button onClick={this.updateTile}>UPDATE</button>}

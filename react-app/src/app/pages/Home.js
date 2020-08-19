@@ -3,8 +3,10 @@ import Entry from '../components/Entry';
 import styles from '../../css/homepage.module.css';
 import artEntryService from '../services/artEntryService';
 import AuthService from '../services/auth-service';
+const BASE_IMAGE_URL = "https://sophie-website-bucket.s3.eu-west-2.amazonaws.com/";
 
 class Home extends React.Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -28,7 +30,7 @@ class Home extends React.Component {
                 <div className="gallery">
                     {this.state.tiles.map((tile) => {
                     return (
-                        <Entry key={tile.id} title={tile.title} id={tile.id} image={tile.image}></Entry>
+                        <Entry key={tile.id} title={tile.title} id={tile.id} image={BASE_IMAGE_URL + tile.image}></Entry>
                         )
                     })}
                 </div>

@@ -32,9 +32,52 @@ function createArtworkEntry(createdEntry) {
     })
 }
 
+function uploadImage(imageFile) {
+
+  console.log('file' + imageFile);
+    if(_.isNil(imageFile.name)) {
+      return Promise.resolve();
+    }
+    const file = imageFile;
+    const contentType = imageFile.type;
+    const generatePutUrl = BASE_URL + "aws-presign/put";
+    const header = authHeader.authHeader();
+    header['Content-Type'] = contentType;
+    header['x-amz-acl'] = 'public-read';
+    const options = {
+        params: {
+          Key: imageFile.name,
+          ContentType: contentType
+        },
+        headers: header 
+      };
+      return axios.get(generatePutUrl, options).then(res => {
+        console.log(res);
+        const {
+          data: { putURL }
+        } = res;
+        delete options.headers['x-access-token'];
+        delete options.params;
+
+        axios.put(putURL, file).then((res) => {
+          debugger;
+            console.log(res);
+            return res;
+          })
+          .catch((err) => {
+            debugger;
+            console.log('err', err);
+            return err;
+          });
+      }).catch((err) => {
+        console.log('err' + err);
+      })
+}
+
 export default {
     getArtworkEntries,
     getArtworkEntryById,
     updateArtworkEntry,
-    createArtworkEntry
+    createArtworkEntry,
+    uploadImage
 };

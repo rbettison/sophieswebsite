@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 require('./app/routes/entry.routes')(app);
+require('./app/routes/awsPresigner.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8081;
@@ -51,11 +52,16 @@ function initial() {
     Entry.create({
         title: 'Art Entry Numero Uno',
         description: 'This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description.',
-        image: '/images/eye.jpg'
+        image: 'eye.jpg'
     })
     Entry.create({
-        title: 'Art Entry Numero Uno',
+        title: 'Art Entry Numero Dos',
         description: 'This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description.',
-        image: '/images/noise.jpg'
+        image: 'noise.jpg'
     })
+    Entry.create({
+      title: 'HOUSE',
+      description: 'This is a very long description. This is a very long description. This is a very long description. This is a very long description. This is a very long description.',
+      image: 'house.jpg'
+  })
 }
