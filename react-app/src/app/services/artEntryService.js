@@ -56,16 +56,10 @@ function uploadImage(imageFile) {
         const {
           data: { putURL }
         } = res;
-        delete options.headers['x-access-token'];
-        delete options.params;
-
-        axios.put(putURL, file).then((res) => {
-          debugger;
-            console.log(res);
+        return axios.put(putURL, file).then((res) => {
             return res;
           })
           .catch((err) => {
-            debugger;
             console.log('err', err);
             return err;
           });
